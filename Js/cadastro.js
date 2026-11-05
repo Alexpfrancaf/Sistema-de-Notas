@@ -16,7 +16,7 @@ formCadastro.addEventListener("submit", async function (event) {
     return;
   }
 
-  const resposta = await fetch("/api/cadastro.php", {
+  const resposta = await fetch("sistema-de-notas-production-1398.up.railway.app", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ nome, email, senha })
