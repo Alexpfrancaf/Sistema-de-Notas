@@ -12,7 +12,7 @@ const nomeUsuario   = document.getElementById("nomeUsuario");
 
 // Lista notas do usuário logado
 async function renderizarNotas() {
-  const resposta = await fetch("../api/listar_notas.php");
+  const resposta = await fetch("sistema-de-notas-production-1398.up.railway.app");
 
   if (resposta.status === 401) {
     window.location.href = "index.html";
@@ -41,7 +41,7 @@ async function renderizarNotas() {
 
 // Salva nota nova
 async function salvarNota(titulo, conteudo) {
-  await fetch("../backend/Api/salvar_nota.php", {
+  await fetch("sistema-de-notas-production-1398.up.railway.app", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ titulo, conteudo }),
@@ -52,7 +52,7 @@ async function salvarNota(titulo, conteudo) {
 
 // Editar nota
 async function editarNota(id) {
-  const resposta = await fetch("../api/listar_notas.php");
+  const resposta = await fetch("sistema-de-notas-production-1398.up.railway.app");
   const notas    = await resposta.json();
   const nota     = notas.find((n) => n.id === id);
   if (!nota) return;
@@ -68,7 +68,7 @@ async function editarNota(id) {
 async function deletarNota(id) {
   if (!confirm("Deseja excluir esta nota?")) return;
 
-  await fetch("../backend/Api/deletar_nota.php", {
+  await fetch("sistema-de-notas-production-1398.up.railway.app", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ id }),
@@ -91,7 +91,7 @@ notaForm.addEventListener("submit", async function (event) {
   }
 
   if (id) {
-    await fetch("../backend/Api/editar_nota.php", {
+    await fetch("sistema-de-notas-production-1398.up.railway.app", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id, titulo, conteudo }),
@@ -130,7 +130,7 @@ overlay.addEventListener("click", function (e) {
 
 // Logout
 logoutBtn.addEventListener("click", async function () {
-  await fetch("../backend/Api/logout.php");
+  await fetch("sistema-de-notas-production-1398.up.railway.app");
   window.location.href = "index.html";
 });
 
