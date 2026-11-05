@@ -14,7 +14,7 @@ formLogin.addEventListener("submit", async function (event) {
     return;
   }
 
-  const resposta = await fetch("/api/login.php", {
+  const resposta = await fetch("sistema-de-notas-production-1398.up.railway.app", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, senha })
