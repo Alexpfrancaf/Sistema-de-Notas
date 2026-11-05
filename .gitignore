@@ -1,0 +1,12 @@
+# Credenciais do banco
+backend/conexao.php
+
+# Variáveis de ambiente
+.env
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Logs PHP
+*.log
